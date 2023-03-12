@@ -1,0 +1,36 @@
+version: "3.7"
+services:
+  nodeapp:
+    container_name: node-test
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3500:3500"
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_URL: 'mongodb://mongo-nodetest:27017/node-test'
+    networks:
+      - node-webapp-network
+    expose:
+      - 3500
+
+  mongodb:
+    container_name: mongo-nodetest
+    image: mongo:latest
+    volumes:
+      - ~/mongo:/data/db
+    ports:
+      - "27017:27017"
+    expose:
+      - 27017
+    networks:
+      - node-webapp-network
+
+networks:
+  node-webapp-network:
+    driver: bridge

@@ -1,0 +1,43 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "npx nodemon",
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hpbee/node-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hpbee/node-test/issues"
+  },
+  "homepage": "https://github.com/hpbee/node-test#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.17",
+    "@types/http-status": "^1.1.2",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^18.15.0",
+    "nodemon": "^2.0.21",
+    "rimraf": "^4.4.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http-status": "^1.6.2",
+    "mongoose": "^7.0.1",
+    "validator": "^13.9.0"
+  }
+}
