@@ -13,20 +13,20 @@ export class IPerson {
     addresses: Residence[];
 }
 
-class Residence{
+class Residence {
     from: string; // YYYY-MM-DD
     to: string; // YYYY-MM-DD, will be empty for current address
     addressId: string;
 }
 const ResidenceSchema = new Schema<Residence>({
-    from: { type: String, required: true }, // YYYY-MM-DD
-    to: { type: String, }, // YYYY-MM-DD, will be empty for current address
+    from: { type: String, required: true, index: true }, // YYYY-MM-DD
+    to: { type: String, index: true }, // YYYY-MM-DD, will be empty for current address
     addressId: { type: String, required: true },
 })
 
 export const PersonSchema = new Schema<IPerson>({
     personId: { type: String, unique: true },
-    gender: { type: String, unique: true },
+    gender: { type: String },
     dob: { type: String }, // YYYY-MM-DD
     dod: { type: String }, // YYYY-MM-DD
     name: {
@@ -37,5 +37,5 @@ export const PersonSchema = new Schema<IPerson>({
     addresses: { type: [ResidenceSchema] }
 });
 
-const Person = mongoose.model<IPerson>('Person', PersonSchema);
-export default Person;
+const PersonsModel = mongoose.model<IPerson>('Person', PersonSchema);
+export default PersonsModel;

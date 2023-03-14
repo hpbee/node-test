@@ -4,8 +4,6 @@ import { IPerson } from "../models/person.model";
 
 
 export class PersonsService {
-
-    constructor() {  }
     async searchPersons(searchPersonsDto: SearchPersonsDto) {
         return personsRepository.searchPersons(searchPersonsDto);
     }

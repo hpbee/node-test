@@ -10,6 +10,8 @@ export const validateRequiredSearchParamsFields = async (
         params &&
         params.from &&
         params.to &&
+        params?.to >= params?.from &&
+        params?.from >= "1950-01-01" &&
         (
             (params.addressIds && params.addressIds.length && !params.zipCodes) ||
             (params.zipCodes && params.zipCodes.length && !params.addressIds)
